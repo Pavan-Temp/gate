@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE CSE AIR 1 Companion</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .app-container {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-heavy);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-header {
+            background: var(--primary-gradient);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .app-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-header .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .air1-motivation {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px auto 0 auto;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .motivation-text {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .overall-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .overall-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+
+        .overall-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .content-area {
+            padding: 50px 40px;
+            background: var(--white);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .page-title i {
+            font-size: 2rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px 25px;
+            border-radius: var(--radius-md);
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+            box-shadow: var(--shadow-light);
+        }
+
+        .breadcrumb-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-nav span {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .subjects-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .topics-grid {
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .learning-roadmap {
+            position: relative;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .roadmap-path {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-checkpoint {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .roadmap-checkpoint.completed {
+            background: #10b981;
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .roadmap-checkpoint.current {
+            background: #f59e0b;
+            border-color: #f59e0b;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .roadmap-checkpoint i {
+            color: #667eea;
+            font-size: 16px;
+        }
+
+        .roadmap-checkpoint.completed i {
+            color: var(--white);
+        }
+
+        .roadmap-checkpoint.current i {
+            color: var(--white);
+        }
+
+        .roadmap-content {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-medium);
+            max-width: 450px;
+            width: 100%;
+            margin: 0 60px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-content {
+            margin-left: auto;
+            margin-right: 60px;
+        }
+
+        .roadmap-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+            border-color: #667eea;
+        }
+
+        .roadmap-content.completed {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: #10b981;
+        }
+
+        .roadmap-content.current {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-color: #f59e0b;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .roadmap-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .roadmap-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .roadmap-status.completed {
+            color: #10b981;
+        }
+
+        .roadmap-status.current {
+            color: #f59e0b;
+        }
+
+        .roadmap-status.pending {
+            color: #6b7280;
+        }
+
+        .roadmap-progress {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-light);
+            min-width: 200px;
+        }
+
+        .progress-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .roadmap-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-roadmap {
+            padding: 8px 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-start {
+            background: #10b981;
+            color: var(--white);
+        }
+
+        .btn-start:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+
+        .btn-complete {
+            background: #f59e0b;
+            color: var(--white);
+        }
+
+        .btn-complete:hover {
+            background: #d97706;
+            transform: translateY(-1px);
+        }
+
+        .btn-review {
+            background: #6366f1;
+            color: var(--white);
+        }
+
+        .btn-review:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        .btn-restart {
+            background: #f97316;
+            color: var(--white);
+        }
+
+        .btn-restart:hover {
+            background: #ea580c;
+            transform: translateY(-1px);
+        }
+
+        /* Modern Prompt Section */
+        .modern-prompt-container {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-heavy);
+            margin: 30px 0;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .prompt-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .prompt-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modern-copy-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modern-copy-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .modern-copy-btn.secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .prompt-content {
+            padding: 0;
+        }
+
+        .prompt-text-area {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 30px;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: none;
+            resize: none;
+            overflow-x: auto;
+        }
+
+        .prompt-text-area pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .prompt-usage {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .usage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .usage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .usage-item:active {
+            transform: translateY(-2px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        .usage-item i {
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+
+        .usage-item span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .usage-note {
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Concept Tracker */
+        .concept-tracker {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-medium);
+            margin: 30px 0;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .tracker-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: var(--white);
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .tracker-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tracker-header p {
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .concepts-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .concept-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .concept-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            border-color: #10b981;
+        }
+
+        .concept-item.completed {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: #10b981;
+        }
+
+        .concept-checkbox {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .concept-checkbox.checked {
+            background: #10b981;
+            border-color: #10b981;
+            color: var(--white);
+        }
+
+        .concept-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            padding-right: 40px;
+        }
+
+        .concept-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .mastery-progress {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .mastery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .mastery-bar {
+            width: 100%;
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .mastery-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .mastery-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-mastery {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-mastery.complete {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: var(--white);
+        }
+
+        .btn-mastery.complete:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-mastery.reset {
+            background: #ef4444;
+            color: var(--white);
+        }
+
+        .btn-mastery.reset:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .subject-card {
+            background: var(--primary-gradient);
+            color: var(--white);
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            height: 140px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .subject-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .subject-card span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.3;
+            display: block;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .subject-card.completed {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .subject-card.completed:hover {
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.4);
+        }
+
+        .subject-card.in-progress {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .subject-card.in-progress:hover {
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .topic-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            color: var(--text-dark);
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 500;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            position: relative;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary-gradient);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: #f093fb;
+        }
+
+        .topic-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .selected-section {
+            background: var(--success-gradient);
+            color: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .selected-section h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .selected-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .action-bar {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        .prompt-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            margin-top: 30px;
+            border-left: 6px solid #667eea;
+            box-shadow: var(--shadow-light);
+        }
+
+        .prompt-section h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt-display {
+            background: var(--dark-gradient);
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .usage-note {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid #667eea;
+        }
+
+        .usage-note p {
+            color: var(--text-light);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .app-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content i {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .subjects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .subjects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .subject-card {
+                height: 120px;
+                font-size: 1rem;
+            }
+
+            .roadmap-item {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .roadmap-item:nth-child(even) {
+                flex-direction: column !important;
+            }
+
+            .roadmap-content {
+                margin: 20px auto 0 auto !important;
+                max-width: 100%;
+            }
+
+            .roadmap-checkpoint {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin-bottom: 15px;
+            }
+
+            .roadmap-path {
+                display: none;
+            }
+
+            .roadmap-progress {
+                position: static;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 10px;
+            }
+            
+            .app-header {
+                padding: 40px 20px;
+            }
+            
+            .content-area {
+                padding: 30px 20px;
+            }
+            
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .subject-card {
+                height: 100px;
+                font-size: 0.95rem;
+            }
+            
+            .action-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                justify-content: center;
+            }
+
+            .learning-roadmap {
+                padding: 20px 10px;
+            }
+
+            .roadmap-content {
+                padding: 20px;
+                margin: 15px auto 0 auto !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .subject-card {
+                height: 90px;
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .card:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .roadmap-item {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .roadmap-item:nth-child(1) { animation-delay: 0.1s; }
+        .roadmap-item:nth-child(2) { animation-delay: 0.2s; }
+        .roadmap-item:nth-child(3) { animation-delay: 0.3s; }
+        .roadmap-item:nth-child(4) { animation-delay: 0.4s; }
+        .roadmap-item:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-wrapper">
+            <div class="app-header">
+                <h1><i class="fas fa-bullseye"></i> GATE CSE AIR 1 Companion Platform</h1>
+                <p class="subtitle">Master <strong>every single concept</strong> of GATE CSE from scratch to expert level with notes, quizzes, PYQs, and interactive AI prompts!</p>
+                
+                <div class="air1-motivation">
+                    <div class="motivation-text">
+                        🎯 <strong>Your Goal:</strong> GATE CSE AIR 1 | 💪 <strong>Your Journey:</strong> Every Topic Matters | 🏆 <strong>Your Victory:</strong> Inevitable
+                    </div>
+                    <div class="overall-progress">
+                        <span><i class="fas fa-chart-line"></i> Overall Progress</span>
+                        <span id="overallPercent">0%</span>
+                    </div>
+                    <div class="overall-progress-bar">
+                        <div class="overall-progress-fill" id="overallProgressFill"></div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9); font-size: 0.85rem;">
+                        <span id="overallStats">0 topics completed across all subjects</span>
+                    </div>
+                    <div style="margin-top: 15px; text-align: center;">
+                        <a href="{{ url_for('logout') }}" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; padding: 5px 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; transition: all 0.3s ease;" 
+                           onmouseover="this.style.background='rgba(255,255,255,0.1)'" 
+                           onmouseout="this.style.background='transparent'">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-area">
+                <!-- Breadcrumb Navigation -->
+                {% if session.selected_subject or session.selected_topic %}
+                <div class="breadcrumb-nav">
+                    <a href="{{ url_for('clear_selection') }}"><i class="fas fa-home"></i> Home</a>
+                    {% if session.selected_subject %}
+                        <i class="fas fa-chevron-right" style="margin: 0 10px; color: #718096;"></i>
+                        <span>{{ session.selected_subject }}</span>
+                    {% endif %}
+                    {% if session.selected_topic %}
+                        <i class="fas fa-chevron-right" style="margin: 0 10px; color: #718096;"></i>
+                        <span>{{ session.selected_topic }}</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+                <!-- Subject Selection -->
+                {% if not session.selected_subject %}
+                <h2 class="page-title">
+                    <i class="fas fa-brain"></i>
+                    Choose Your Subject
+                </h2>
+                <div class="grid-container subjects-grid">
+                    {% for subject in subjects %}
+                    <form method="POST" action="{{ url_for('select_subject') }}" style="margin: 0;">
+                        <input type="hidden" name="subject" value="{{ subject }}">
+                        <button type="submit" class="card subject-card">
+                            <span>{{ subject }}</span>
+                        </button>
+                    </form>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <!-- Topic Selection -->
+                {% if session.selected_subject and not session.selected_topic %}
+                <h2 class="page-title">
+                    <i class="fas fa-route"></i>
+                    Learning Roadmap: {{ session.selected_subject }}
+                </h2>
+                <div class="action-bar">
+                    <a href="{{ url_for('clear_selection') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Subjects
+                    </a>
+                </div>
+                
+                <div class="learning-roadmap">
+                    <div class="roadmap-path"></div>
+                    
+                    <!-- Progress Overview -->
+                    <div class="roadmap-progress">
+                        <div class="progress-title">
+                            <i class="fas fa-chart-line"></i> Learning Progress
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="progressText">0 of {{ subjects[session.selected_subject]|length }} topics completed</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                    </div>
+                    
+                    {% for topic in subjects[session.selected_subject] %}
+                    <div class="roadmap-item" data-topic-index="{{ loop.index0 }}">
+                        <div class="roadmap-checkpoint" id="checkpoint-{{ loop.index0 }}">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="roadmap-content" id="content-{{ loop.index0 }}">
+                            <div class="roadmap-title">
+                                <i class="fas fa-book-open"></i>
+                                {{ topic }}
+                            </div>
+                            <div class="roadmap-description">
+                                Master this fundamental concept to advance in your GATE CSE preparation journey.
+                            </div>
+                            <div class="roadmap-status pending" id="status-{{ loop.index0 }}">
+                                <i class="fas fa-clock"></i>
+                                <span>Not Started</span>
+                            </div>
+                            <div class="roadmap-actions">
+                                <form method="POST" action="{{ url_for('select_topic') }}" style="margin: 0; display: inline;">
+                                    <input type="hidden" name="topic" value="{{ topic }}">
+                                    <button type="submit" class="btn-roadmap btn-start" id="btn-{{ loop.index0 }}">
+                                        <i class="fas fa-play"></i> Start Learning
+                                    </button>
+                                </form>
+                                <button class="btn-roadmap btn-complete" onclick="markCompleted({{ loop.index0 }})" style="display: none;" id="complete-{{ loop.index0 }}">
+                                    <i class="fas fa-check"></i> Mark Complete
+                                </button>
+                                <button class="btn-roadmap btn-review" onclick="reviewTopic({{ loop.index0 }})" style="display: none;" id="review-{{ loop.index0 }}">
+                                    <i class="fas fa-eye"></i> Review
+                                </button>
+                                <button class="btn-roadmap btn-restart" onclick="restartTopic({{ loop.index0 }})" style="display: none;" id="restart-{{ loop.index0 }}">
+                                    <i class="fas fa-redo"></i> Restart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <!-- Selected Topic and AI Prompt Generation -->
+                {% if session.selected_topic %}
+                <div class="selected-section">
+                    <h3>
+                        <i class="fas fa-check-circle"></i>
+                        Selected Topic: {{ session.selected_topic }}
+                    </h3>
+                    <p>Generate your personalized AI learning prompt and track your concept mastery</p>
+                </div>
+                
+                <div class="action-bar">
+                    <a href="{{ url_for('clear_selection') }}" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Back to Subjects
+                    </a>
+                    <form method="POST" action="{{ url_for('select_subject') }}" style="margin: 0;">
+                        <input type="hidden" name="subject" value="{{ session.selected_subject }}">
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Roadmap
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Enhanced Prompt Section - Auto-generated when topic is selected -->
+                <div class="modern-prompt-container">
+                    <div class="prompt-header">
+                        <div class="prompt-title">
+                            <i class="fas fa-magic"></i>
+                            Your Personalized AI Learning Prompt
+                        </div>
+                        <div class="prompt-actions">
+                            <button class="modern-copy-btn" onclick="copyPrompt()">
+                                <i class="fas fa-copy"></i> Copy Prompt
+                            </button>
+                            <button class="modern-copy-btn secondary" onclick="downloadPrompt()">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-content">
+                        <div class="prompt-text-area">
+                            <pre id="promptText">{{ session.generated_prompt }}</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-usage">
+                        <div class="usage-grid">
+                            <div class="usage-item" onclick="openChatGPT()">
+                                <i class="fab fa-openai"></i>
+                                <span>ChatGPT</span>
+                            </div>
+                            <div class="usage-item" onclick="openClaude()">
+                                <i class="fas fa-brain"></i>
+                                <span>Claude</span>
+                            </div>
+                            <div class="usage-item" onclick="openGrok()">
+                                <i class="fab fa-x-twitter"></i>
+                                <span>Grok</span>
+                            </div>
+                            <div class="usage-item" onclick="openGemini()">
+                                <i class="fab fa-google"></i>
+                                <span>Gemini</span>
+                            </div>
+                        </div>
+                        <p class="usage-note">Click on any AI platform to open it in a new tab with your prompt automatically ready!</p>
+                    </div>
+                </div>
+
+                <!-- Concept Tracker Section -->
+                <div class="concept-tracker">
+                    <div class="tracker-header">
+                        <h3>
+                            <i class="fas fa-tasks"></i>
+                            Concept Mastery Tracker
+                        </h3>
+                        <p>Check off concepts as you master them</p>
+                    </div>
+                    
+                    <div class="concepts-grid" id="conceptsGrid">
+                        <!-- Concepts will be dynamically generated based on the topic -->
+                    </div>
+                    
+                    <div class="mastery-progress">
+                        <div class="mastery-header">
+                            <span>Mastery Progress</span>
+                            <span id="masteryPercent">0%</span>
+                        </div>
+                        <div class="mastery-bar">
+                            <div class="mastery-fill" id="masteryFill"></div>
+                        </div>
+                        <div class="mastery-actions">
+                            <button class="btn-mastery complete" onclick="markTopicComplete()">
+                                <i class="fas fa-trophy"></i> Mark Topic as Mastered
+                            </button>
+                            <button class="btn-mastery reset" onclick="resetProgress()">
+                                <i class="fas fa-redo"></i> Reset Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="app-footer">
+                <div class="footer-content">
+                    <span>Made with</span>
+                    <i class="fas fa-heart"></i>
+                    <span>to help you reach GATE CSE AIR 1</span>
+                    <span>|</span>
+                    <span>Powered by Flask</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data from Flask backend
+        const subjectsData = {{ subjects | tojson }};
+        const conceptMasteryData = {{ concept_mastery | tojson }};
+        
+        // Enhanced JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Initialize roadmap progress
+            initializeRoadmap();
+            
+            // Initialize concept tracker
+            initializeConceptTracker();
+            
+            // Initialize subject completion status
+            updateSubjectCompletionStatus();
+            
+            // Add advanced ripple effect
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    animation: ripple-effect 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                button.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+            
+            // Apply ripple effect to all buttons
+            document.querySelectorAll('button, .btn').forEach(button => {
+                button.style.position = 'relative';
+                button.style.overflow = 'hidden';
+                button.addEventListener('click', createRipple);
+            });
+            
+            // Add loading states
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function() {
+                    const button = form.querySelector('button[type="submit"]');
+                    if (button) {
+                        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                        button.disabled = true;
+                    }
+                });
+            });
+            
+            // Add intersection observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.card, .roadmap-item').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+        
+        // Concept Tracker functionality
+        function initializeConceptTracker() {
+            const conceptsGrid = document.getElementById('conceptsGrid');
+            if (!conceptsGrid) return;
+            
+            const topic = getCurrentTopic();
+            const subject = getCurrentSubject();
+            const concepts = getConceptsForTopic(topic);
+            
+            conceptsGrid.innerHTML = '';
+            
+            concepts.forEach((concept, index) => {
+                const conceptItem = document.createElement('div');
+                conceptItem.className = 'concept-item';
+                conceptItem.innerHTML = `
+                    <div class="concept-checkbox" onclick="toggleConceptTracker('${subject}', '${topic}', ${index})">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="concept-title">${concept.title}</div>
+                    <div class="concept-description">${concept.description}</div>
+                `;
+                conceptsGrid.appendChild(conceptItem);
+            });
+            
+            // Load saved progress
+            loadConceptProgress();
+        }
+        
+        function getCurrentTopic() {
+            const breadcrumbs = document.querySelectorAll('.breadcrumb-nav span');
+            return breadcrumbs.length > 1 ? breadcrumbs[1].textContent : '';
+        }
+        
+        function getCurrentSubject() {
+            const breadcrumbs = document.querySelectorAll('.breadcrumb-nav span');
+            return breadcrumbs.length > 0 ? breadcrumbs[0].textContent : '';
+        }
+        
+        function getConceptsForTopic(topic) {
+            // Use the concept mastery data from Flask
+            const concepts = conceptMasteryData[topic];
+            if (concepts && concepts.length > 0) {
+                return concepts.map((concept, index) => ({
+                    title: `Concept ${index + 1}`,
+                    description: concept
+                }));
+            }
+            
+            // Fallback for topics without specific concepts
+            return [
+                { title: 'Core Concepts', description: 'Fundamental principles and definitions' },
+                { title: 'Key Algorithms', description: 'Important algorithms and techniques' },
+                { title: 'Problem Solving', description: 'Practical applications and examples' },
+                { title: 'Advanced Topics', description: 'Complex scenarios and edge cases' }
+            ];
+        }
+        
+        function toggleConcept(index) {
+            const conceptItems = document.querySelectorAll('.concept-item');
+            const conceptItem = conceptItems[index];
+            const checkbox = conceptItem.querySelector('.concept-checkbox');
+            const checkIcon = checkbox.querySelector('i');
+            
+            if (conceptItem.classList.contains('completed')) {
+                conceptItem.classList.remove('completed');
+                checkbox.classList.remove('checked');
+                checkIcon.style.display = 'none';
+            } else {
+                conceptItem.classList.add('completed');
+                checkbox.classList.add('checked');
+                checkIcon.style.display = 'block';
+            }
+            
+            updateMasteryProgress();
+        }
+        
+        function loadConceptProgress() {
+            const topic = getCurrentTopic();
+            const subject = getCurrentSubject();
+            const progress = JSON.parse(localStorage.getItem('conceptProgress') || '{}');
+            const topicProgress = progress[subject] && progress[subject][topic] ? progress[subject][topic] : {};
+            
+            Object.keys(topicProgress).forEach(index => {
+                if (topicProgress[index]) {
+                    const conceptItems = document.querySelectorAll('.concept-item');
+                    const conceptIndex = parseInt(index);
+                    if (conceptItems[conceptIndex]) {
+                        const conceptItem = conceptItems[conceptIndex];
+                        const checkbox = conceptItem.querySelector('.concept-checkbox');
+                        const checkIcon = checkbox.querySelector('i');
+                        
+                        conceptItem.classList.add('completed');
+                        checkbox.classList.add('checked');
+                        checkIcon.style.display = 'block';
+                    }
+                }
+            });
+            
+            updateMasteryProgress();
+        }
+        
+        function updateMasteryProgress() {
+            const totalConcepts = document.querySelectorAll('.concept-item').length;
+            const completedConcepts = document.querySelectorAll('.concept-item.completed').length;
+            const percentage = totalConcepts > 0 ? Math.round((completedConcepts / totalConcepts) * 100) : 0;
+            
+            const masteryFill = document.getElementById('masteryFill');
+            const masteryPercent = document.getElementById('masteryPercent');
+            
+            if (masteryFill && masteryPercent) {
+                masteryFill.style.width = percentage + '%';
+                masteryPercent.textContent = percentage + '%';
+            }
+        }
+        
+        function markTopicComplete() {
+            const topic = getCurrentTopic();
+            const subject = getCurrentSubject();
+            
+            // Mark all concepts as completed
+            document.querySelectorAll('.concept-item').forEach((item, index) => {
+                if (!item.classList.contains('completed')) {
+                    toggleConceptTracker(subject, topic, index);
+                }
+            });
+            
+            // Show celebration
+            showCelebration('🎉 Topic Mastered! Outstanding work!');
+            
+            // Update roadmap to mark current topic as completed
+            const progress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+            if (!progress[subject]) progress[subject] = {};
+            
+            // Find the current topic index in the roadmap
+            const topics = subjectsData[subject] || [];
+            const topicIndex = topics.indexOf(topic);
+            if (topicIndex !== -1) {
+                progress[subject][topicIndex] = 'completed';
+                localStorage.setItem('gateCSEProgress', JSON.stringify(progress));
+            }
+            
+            updateSubjectCompletionStatus();
+            
+            // You can expand this to update the roadmap
+            setTimeout(() => {
+                if (confirm('Great job! Would you like to return to the roadmap to continue your learning journey?')) {
+                    // Go back to roadmap
+                    const backButton = document.querySelector('button[type="submit"]');
+                    if (backButton && backButton.textContent.includes('Back to Roadmap')) {
+                        backButton.click();
+                    }
+                }
+            }, 2000);
+        }
+        
+        function resetProgress() {
+            const topic = getCurrentTopic();
+            const subject = getCurrentSubject();
+            
+            if (confirm('Are you sure you want to reset your progress for this topic?')) {
+                // Clear progress from localStorage
+                const progress = JSON.parse(localStorage.getItem('conceptProgress') || '{}');
+                if (progress[subject] && progress[subject][topic]) {
+                    delete progress[subject][topic];
+                    localStorage.setItem('conceptProgress', JSON.stringify(progress));
+                }
+                
+                // Reset UI for all concept items
+                document.querySelectorAll('.concept-item').forEach((item, index) => {
+                    const checkbox = item.querySelector('.concept-checkbox');
+                    const checkIcon = checkbox.querySelector('i');
+                    
+                    item.classList.remove('completed');
+                    checkbox.classList.remove('checked');
+                    checkIcon.style.display = 'none';
+                });
+                
+                // Update mastery progress
+                updateMasteryProgress();
+                
+                // Update subject completion status
+                updateSubjectCompletionStatus();
+                
+                // Show confirmation
+                showCelebration('🔄 Progress Reset! Start fresh with this topic.');
+            }
+        }
+        
+        function downloadPrompt() {
+            const promptText = document.getElementById('promptText').textContent;
+            const topic = getCurrentTopic();
+            const blob = new Blob([promptText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `GATE_CSE_Prompt_${topic.replace(/[^a-zA-Z0-9]/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Roadmap functionality
+        function initializeRoadmap() {
+            const roadmapItems = document.querySelectorAll('.roadmap-item');
+            if (roadmapItems.length === 0) return;
+            
+            // Load progress from localStorage
+            const progress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+            const currentSubject = getCurrentSubject();
+            const subjectProgress = progress[currentSubject] || {};
+            
+            let completedCount = 0;
+            
+            roadmapItems.forEach((item, index) => {
+                const checkpoint = item.querySelector('.roadmap-checkpoint');
+                const content = item.querySelector('.roadmap-content');
+                const status = item.querySelector('.roadmap-status');
+                const startBtn = item.querySelector('.btn-start');
+                const completeBtn = item.querySelector(`#complete-${index}`);
+                const reviewBtn = item.querySelector(`#review-${index}`);
+                const restartBtn = item.querySelector(`#restart-${index}`);
+                
+                if (subjectProgress[index] === 'completed') {
+                    checkpoint.classList.add('completed');
+                    content.classList.add('completed');
+                    checkpoint.innerHTML = '<i class="fas fa-check"></i>';
+                    status.innerHTML = '<i class="fas fa-check-circle"></i><span>Completed</span>';
+                    status.className = 'roadmap-status completed';
+                    startBtn.style.display = 'none';
+                    completeBtn.style.display = 'none';
+                    reviewBtn.style.display = 'inline-flex';
+                    restartBtn.style.display = 'inline-flex';
+                    completedCount++;
+                } else if (index === completedCount) {
+                    // Current topic
+                    checkpoint.classList.add('current');
+                    content.classList.add('current');
+                    checkpoint.innerHTML = '<i class="fas fa-play"></i>';
+                    status.innerHTML = '<i class="fas fa-clock"></i><span>Ready to Start</span>';
+                    status.className = 'roadmap-status current';
+                }
+            });
+            
+            updateProgress(completedCount, roadmapItems.length);
+        }
+        
+        function getCurrentSubject() {
+            const breadcrumb = document.querySelector('.breadcrumb-nav span');
+            return breadcrumb ? breadcrumb.textContent : '';
+        }
+        
+        function markCompleted(index) {
+            const progress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+            const currentSubject = getCurrentSubject();
+            
+            if (!progress[currentSubject]) {
+                progress[currentSubject] = {};
+            }
+            
+            progress[currentSubject][index] = 'completed';
+            localStorage.setItem('gateCSEProgress', JSON.stringify(progress));
+            
+            // Update UI
+            const checkpoint = document.querySelector(`#checkpoint-${index}`);
+            const content = document.querySelector(`#content-${index}`);
+            const status = document.querySelector(`#status-${index}`);
+            const startBtn = document.querySelector(`#btn-${index}`);
+            const completeBtn = document.querySelector(`#complete-${index}`);
+            const reviewBtn = document.querySelector(`#review-${index}`);
+            
+            checkpoint.classList.add('completed');
+            checkpoint.classList.remove('current');
+            content.classList.add('completed');
+            content.classList.remove('current');
+            checkpoint.innerHTML = '<i class="fas fa-check"></i>';
+            status.innerHTML = '<i class="fas fa-check-circle"></i><span>Completed</span>';
+            status.className = 'roadmap-status completed';
+            startBtn.style.display = 'none';
+            completeBtn.style.display = 'none';
+            reviewBtn.style.display = 'inline-flex';
+            
+            // Update next topic
+            const nextCheckpoint = document.querySelector(`#checkpoint-${index + 1}`);
+            const nextContent = document.querySelector(`#content-${index + 1}`);
+            const nextStatus = document.querySelector(`#status-${index + 1}`);
+            
+            if (nextCheckpoint) {
+                nextCheckpoint.classList.add('current');
+                nextContent.classList.add('current');
+                nextCheckpoint.innerHTML = '<i class="fas fa-play"></i>';
+                nextStatus.innerHTML = '<i class="fas fa-clock"></i><span>Ready to Start</span>';
+                nextStatus.className = 'roadmap-status current';
+            }
+            
+            // Update progress
+            const completedCount = Object.keys(progress[currentSubject]).length;
+            const totalCount = document.querySelectorAll('.roadmap-item').length;
+            updateProgress(completedCount, totalCount);
+            
+            // Show celebration
+            showCelebration();
+        }
+        
+        function reviewTopic(index) {
+            // Get the topic name from the roadmap
+            const roadmapItems = document.querySelectorAll('.roadmap-item');
+            if (roadmapItems[index]) {
+                const topicElement = roadmapItems[index].querySelector('.roadmap-title');
+                if (topicElement) {
+                    const topicText = topicElement.textContent.trim();
+                    // Remove the icon text to get just the topic name
+                    const topicName = topicText.replace(/^\s*\S+\s+/, '').trim();
+                    
+                    // Create a form to submit the topic selection
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = '/select_topic';
+                    form.style.display = 'none';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'topic';
+                    input.value = topicName;
+                    
+                    form.appendChild(input);
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+        }
+        
+        function restartTopic(index) {
+            if (confirm('Are you sure you want to restart this topic? This will reset all progress for this topic and allow you to start fresh.')) {
+                const progress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+                const conceptProgress = JSON.parse(localStorage.getItem('conceptProgress') || '{}');
+                const currentSubject = getCurrentSubject();
+                
+                // Get topic name for concept progress cleanup
+                const roadmapItems = document.querySelectorAll('.roadmap-item');
+                const topicElement = roadmapItems[index].querySelector('.roadmap-title');
+                const topicText = topicElement.textContent.trim();
+                const topicName = topicText.replace(/^\s*\S+\s+/, '').trim();
+                
+                // Remove from roadmap progress
+                if (progress[currentSubject]) {
+                    delete progress[currentSubject][index];
+                    localStorage.setItem('gateCSEProgress', JSON.stringify(progress));
+                }
+                
+                // Remove from concept progress
+                if (conceptProgress[currentSubject] && conceptProgress[currentSubject][topicName]) {
+                    delete conceptProgress[currentSubject][topicName];
+                    localStorage.setItem('conceptProgress', JSON.stringify(conceptProgress));
+                }
+                
+                // Update UI - change back to "not started" state
+                const checkpoint = document.querySelector(`#checkpoint-${index}`);
+                const content = document.querySelector(`#content-${index}`);
+                const status = document.querySelector(`#status-${index}`);
+                const startBtn = document.querySelector(`#btn-${index}`);
+                const completeBtn = document.querySelector(`#complete-${index}`);
+                const reviewBtn = document.querySelector(`#review-${index}`);
+                const restartBtn = document.querySelector(`#restart-${index}`);
+                
+                // Reset to initial state
+                checkpoint.classList.remove('completed', 'current');
+                content.classList.remove('completed', 'current');
+                checkpoint.innerHTML = '<i class="fas fa-circle"></i>';
+                status.innerHTML = '<i class="fas fa-clock"></i><span>Not Started</span>';
+                status.className = 'roadmap-status pending';
+                
+                // Show start button, hide others
+                startBtn.style.display = 'inline-flex';
+                completeBtn.style.display = 'none';
+                reviewBtn.style.display = 'none';
+                restartBtn.style.display = 'none';
+                
+                // Update overall progress
+                const totalCount = document.querySelectorAll('.roadmap-item').length;
+                const newProgress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+                const newSubjectProgress = newProgress[currentSubject] || {};
+                const completedCount = Object.keys(newSubjectProgress).length;
+                updateProgress(completedCount, totalCount);
+                
+                // Update subject completion status
+                updateSubjectCompletionStatus();
+                
+                // Show confirmation
+                showCelebration('🔄 Topic Restarted! Ready to begin your learning journey again.');
+            }
+        }
+        
+        function updateProgress(completed, total) {
+            const percentage = Math.round((completed / total) * 100);
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            if (progressFill) {
+                progressFill.style.width = percentage + '%';
+                progressText.textContent = `${completed} of ${total} topics completed`;
+                progressPercent.textContent = percentage + '%';
+            }
+        }
+        
+        function showCelebration(message = '🎉 Topic Completed! Great Job!') {
+            // Create celebration effect
+            const celebration = document.createElement('div');
+            celebration.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #10b981, #059669);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 15px;
+                font-size: 1.2rem;
+                font-weight: 700;
+                z-index: 10000;
+                box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+                animation: celebration 2s ease-out forwards;
+                text-align: center;
+                max-width: 400px;
+            `;
+            celebration.innerHTML = message;
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                celebration.remove();
+            }, 2000);
+        }
+        
+        // Copy prompt function
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText').textContent.trim();
+            navigator.clipboard.writeText(promptText).then(() => {
+                const copyBtn = document.querySelector('.modern-copy-btn');
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.style.background = 'rgba(34, 197, 94, 0.3)';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.background = 'rgba(255, 255, 255, 0.15)';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy prompt. Please select and copy manually.');
+            });
+        }
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const backButton = document.querySelector('.btn-secondary');
+                if (backButton) {
+                    backButton.click();
+                }
+            }
+        });
+        
+        // Add hover effects for better UX
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Subject completion tracking
+        function updateSubjectCompletionStatus() {
+            const progress = JSON.parse(localStorage.getItem('gateCSEProgress') || '{}');
+            const conceptProgress = JSON.parse(localStorage.getItem('conceptProgress') || '{}');
+            
+            let totalTopicsAcrossAllSubjects = 0;
+            let completedTopicsAcrossAllSubjects = 0;
+            let totalSubjectsCompleted = 0;
+            
+            // Update subject cards with completion status and calculate overall progress
+            document.querySelectorAll('.subject-card').forEach(card => {
+                const subjectName = card.querySelector('span').textContent;
+                const topics = subjectsData[subjectName] || [];
+                const subjectProgress = progress[subjectName] || {};
+                const subjectConceptProgress = conceptProgress[subjectName] || {};
+                
+                let totalTopics = topics.length;
+                let completedTopics = Object.keys(subjectProgress).length;
+                let allConceptsCompleted = true;
+                
+                totalTopicsAcrossAllSubjects += totalTopics;
+                completedTopicsAcrossAllSubjects += completedTopics;
+                
+                // Check if all concepts within topics are also completed
+                topics.forEach((topic, index) => {
+                    const topicConcepts = subjectConceptProgress[topic] || {};
+                    const topicConceptList = conceptMasteryData[topic] || [];
+                    
+                    if (topicConceptList.length > 0) {
+                        const completedConcepts = Object.values(topicConcepts).filter(Boolean).length;
+                        if (completedConcepts < topicConceptList.length) {
+                            allConceptsCompleted = false;
+                        }
+                    }
+                });
+                
+                // Mark subject as complete only if all topics AND concepts are done
+                const isSubjectComplete = completedTopics === totalTopics && allConceptsCompleted;
+                if (isSubjectComplete) totalSubjectsCompleted++;
+                
+                // Add completion indicator to subject card
+                let completionIndicator = card.querySelector('.completion-indicator');
+                if (!completionIndicator) {
+                    completionIndicator = document.createElement('div');
+                    completionIndicator.className = 'completion-indicator';
+                    card.appendChild(completionIndicator);
+                }
+                
+                if (isSubjectComplete) {
+                    card.classList.add('completed');
+                    completionIndicator.innerHTML = '<i class="fas fa-check-circle"></i>';
+                    completionIndicator.style.cssText = `
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: rgba(34, 197, 94, 0.2);
+                        color: #22c55e;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 16px;
+                        backdrop-filter: blur(10px);
+                        border: 2px solid rgba(34, 197, 94, 0.3);
+                    `;
+                } else if (completedTopics > 0) {
+                    card.classList.add('in-progress');
+                    completionIndicator.innerHTML = `<span>${Math.round((completedTopics/totalTopics)*100)}%</span>`;
+                    completionIndicator.style.cssText = `
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: rgba(59, 130, 246, 0.2);
+                        color: #3b82f6;
+                        border-radius: 15px;
+                        padding: 4px 8px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(59, 130, 246, 0.3);
+                    `;
+                } else {
+                    card.classList.remove('completed', 'in-progress');
+                    completionIndicator.innerHTML = '';
+                    completionIndicator.style.display = 'none';
+                }
+            });
+            
+            // Update overall progress in header
+            updateOverallProgress(completedTopicsAcrossAllSubjects, totalTopicsAcrossAllSubjects, totalSubjectsCompleted);
+        }
+
+        function updateOverallProgress(completed, total, subjectsCompleted) {
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const overallFill = document.getElementById('overallProgressFill');
+            const overallPercent = document.getElementById('overallPercent');
+            const overallStats = document.getElementById('overallStats');
+            const totalSubjects = Object.keys(subjectsData).length;
+            
+            if (overallFill && overallPercent && overallStats) {
+                overallFill.style.width = percentage + '%';
+                overallPercent.textContent = percentage + '%';
+                overallStats.textContent = `${completed} of ${total} topics completed across ${subjectsCompleted} of ${totalSubjects} subjects`;
+                
+                // Add motivational messages based on progress
+                const motivationText = document.querySelector('.motivation-text');
+                if (motivationText) {
+                    if (percentage === 100) {
+                        motivationText.innerHTML = '🎉 <strong>CONGRATULATIONS!</strong> You\'re ready for GATE CSE AIR 1! 🏆';
+                    } else if (percentage >= 80) {
+                        motivationText.innerHTML = '🔥 <strong>Almost There!</strong> You\'re in the final stretch to AIR 1! 💪';
+                    } else if (percentage >= 60) {
+                        motivationText.innerHTML = '⚡ <strong>Great Progress!</strong> You\'re building solid foundation for AIR 1! 📚';
+                    } else if (percentage >= 40) {
+                        motivationText.innerHTML = '🚀 <strong>Keep Going!</strong> Every topic brings you closer to AIR 1! ⭐';
+                    } else if (percentage >= 20) {
+                        motivationText.innerHTML = '💡 <strong>Good Start!</strong> You\'re on the right path to AIR 1! 🎯';
+                    } else {
+                        motivationText.innerHTML = '🎯 <strong>Your Goal:</strong> GATE CSE AIR 1 | 💪 <strong>Your Journey:</strong> Every Topic Matters | 🏆 <strong>Your Victory:</strong> Inevitable';
+                    }
+                }
+            }
+        }
+
+        // Enhanced concept completion tracking with subject progress updates
+        function toggleConceptTracker(subject, topic, conceptIndex) {
+            const progress = JSON.parse(localStorage.getItem('conceptProgress') || '{}');
+            
+            if (!progress[subject]) progress[subject] = {};
+            if (!progress[subject][topic]) progress[subject][topic] = {};
+            
+            progress[subject][topic][conceptIndex] = !progress[subject][topic][conceptIndex];
+            localStorage.setItem('conceptProgress', JSON.stringify(progress));
+            
+            // Update UI
+            const conceptItems = document.querySelectorAll('.concept-item');
+            const conceptItem = conceptItems[conceptIndex];
+            const checkbox = conceptItem.querySelector('.concept-checkbox');
+            const checkIcon = checkbox.querySelector('i');
+            
+            if (progress[subject][topic][conceptIndex]) {
+                conceptItem.classList.add('completed');
+                checkbox.classList.add('checked');
+                checkIcon.style.display = 'block';
+            } else {
+                conceptItem.classList.remove('completed');
+                checkbox.classList.remove('checked');
+                checkIcon.style.display = 'none';
+            }
+            
+            updateMasteryProgress();
+            updateSubjectCompletionStatus(); // Update subject status when concepts change
+        }
+
+        // Update subject completion when roadmap changes
+        const originalMarkCompleted = window.markCompleted;
+        window.markCompleted = function(index) {
+            if (originalMarkCompleted) originalMarkCompleted(index);
+            updateSubjectCompletionStatus();
+        };
+
+        // Call initialization functions
+        if (typeof initializeRoadmap === 'function') initializeRoadmap();
+        if (typeof initializeConceptTracker === 'function') initializeConceptTracker();
+        updateSubjectCompletionStatus();
+        
+        // AI Platform Auto-Open Functions
+        function getPromptText() {
+            const promptElement = document.getElementById('promptText');
+            return promptElement ? promptElement.textContent.trim() : '';
+        }
+        
+        function openChatGPT() {
+            const prompt = getPromptText();
+            
+            if (!prompt) {
+                showCelebration('❌ No prompt available. Please select a topic first!');
+                return;
+            }
+            
+            // Copy prompt to clipboard
+            copyToClipboard(prompt);
+            
+            // Open ChatGPT platform
+            window.open('https://chatgpt.com/', '_blank');
+            showCelebration('🤖 Opening ChatGPT! Prompt copied to clipboard!');
+        }
+        
+        function openClaude() {
+            const prompt = getPromptText();
+            if (!prompt) {
+                showCelebration('❌ No prompt available. Please select a topic first!');
+                return;
+            }
+            // Copy prompt to clipboard and open Claude
+            copyToClipboard(prompt);
+            window.open('https://claude.ai/', '_blank');
+            showCelebration('🧠 Opening Claude! Prompt copied to clipboard!');
+        }
+        
+        function openGrok() {
+            const prompt = getPromptText();
+            if (!prompt) {
+                showCelebration('❌ No prompt available. Please select a topic first!');
+                return;
+            }
+            // Copy prompt to clipboard and open Grok
+            copyToClipboard(prompt);
+            window.open('https://x.ai/', '_blank');
+            showCelebration('⚡ Opening Grok! Prompt copied to clipboard!');
+        }
+        
+        function openGemini() {
+            const prompt = getPromptText();
+            if (!prompt) {
+                showCelebration('❌ No prompt available. Please select a topic first!');
+                return;
+            }
+            // Copy prompt to clipboard and open Gemini
+            copyToClipboard(prompt);
+            window.open('https://gemini.google.com/', '_blank');
+            showCelebration('💎 Opening Gemini! Prompt copied to clipboard!');
+        }
+        
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text);
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Additional modern styling */
+        .card {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Smooth focus styles */
+        button:focus,
+        .btn:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* Enhanced hover states */
+        .subject-card:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+        
+        .topic-card:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        /* Loading spinner */
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes celebration {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 480px) {
+            .app-header h1 {
+                font-size: 2rem;
+            }
+            
+            .app-header .subtitle {
+                font-size: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .subject-card {
+                height: 90px;
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</body>
+</html>
