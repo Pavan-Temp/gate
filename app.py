@@ -18,19 +18,34 @@ credentials = load_credentials()
 
 subjects = {
     "Engineering Mathematics": [
-        "Set Theory & Relations", "Mathematical Logic: Propositional & First-Order", 
-        "Partial Orders & Lattices", "Algebraic Structures: Groups, Rings, Fields", 
-        "Graph Theory: Connectivity, Planarity, Matching, Coloring", "Combinatorics & Counting", 
-        "Recurrence Relations & Generating Functions", "Number Theory & Discrete Structures",
-        "Linear Algebra: Vector Spaces, Matrices, Determinants", "LU & QR Decomposition",
-        "Eigenvalues, Eigenvectors & Diagonalization", "Linear Transformations & Rank",
-        "Calculus: Limits, Continuity, Differentiability", "Optimization: Maxima-Minima, Lagrange Multipliers", 
-        "Integration: Definite, Indefinite, Multiple Integrals", "Differential Equations: ODE, PDE",
-        "Probability Theory: Sample Space, Events, Conditional Probability", 
-        "Random Variables & Probability Distributions", "Bayes Theorem & Applications",
-        "Statistics: Descriptive & Inferential", "Hypothesis Testing & Confidence Intervals",
-        "Correlation, Regression & Time Series"
-    ],
+    "Set Theory & Relations",
+    "Mathematical Logic: Propositional & First-Order",
+    "Algebraic Structures: Groups, Rings, Fields",
+    "Partial Orders & Lattices",
+    "Boolean Algebra",
+    "Combinatorics & Counting",
+    "Number Theory & Discrete Structures",
+    "Recurrence Relations & Generating Functions",
+    "Graph Theory: Connectivity, Planarity, Matching, Coloring, Trees",
+    "Linear Algebra: Vector Spaces, Matrices, Determinants",
+    "Linear Transformations & Rank",
+    "LU & QR Decomposition",
+    "Eigenvalues, Eigenvectors & Diagonalization",
+    "Calculus: Limits, Continuity, Differentiability",
+    "Optimization: Maxima-Minima, Lagrange Multipliers",
+    "Integration: Definite, Indefinite, Multiple Integrals",
+    "Mean Value Theorem",
+    "Line, Surface, Volume Integrals",
+    "Differential Equations: ODE, PDE",
+    "Numerical Methods",
+    "Probability Theory: Sample Space, Events, Conditional Probability",
+    "Random Variables & Probability Distributions",
+    "Bayes Theorem & Applications",
+    "Statistics: Descriptive & Inferential",
+    "Hypothesis Testing & Confidence Intervals",
+    "Moments, Skewness, Kurtosis",
+    "Correlation, Regression & Time Series"
+  ],
     "Digital Logic": [
         "Boolean Algebra & De Morgan's Laws", "Logic Gates: Universal, Multi-level", 
         "Combinational Logic Design", "Multiplexers, Demultiplexers, Encoders, Decoders",
@@ -179,21 +194,197 @@ subjects = {
 # Detailed concept mastery for each topic
 concept_mastery = {
     "Set Theory & Relations": [
-        "Set operations: Union, Intersection, Complement",
-        "Cartesian product and relations",
-        "Types of relations: Reflexive, Symmetric, Transitive",
-        "Equivalence relations and partitions",
-        "Functions: Injective, Surjective, Bijective",
-        "Composition of functions and inverse functions"
-    ],
-    "Mathematical Logic: Propositional & First-Order": [
-        "Propositional logic: AND, OR, NOT, IMPLIES",
-        "Truth tables and logical equivalences",
-        "Normal forms: CNF and DNF",
-        "First-order logic: Quantifiers, Predicates",
-        "Inference rules and proof techniques",
-        "Soundness and completeness"
-    ],
+    "Set operations: Union, Intersection, Complement",
+    "Cartesian product and relations",
+    "Types of relations: Reflexive, Symmetric, Transitive",
+    "Equivalence relations and partitions",
+    "Functions: Injective, Surjective, Bijective",
+    "Composition of functions and inverse functions"
+  ],
+
+  "Mathematical Logic: Propositional & First-Order": [
+    "Propositional logic: AND, OR, NOT, IMPLIES",
+    "Truth tables and logical equivalences",
+    "Normal forms: CNF and DNF",
+    "First-order logic: Quantifiers, Predicates",
+    "Inference rules and proof techniques",
+    "Soundness and completeness"
+  ],
+
+  "Algebraic Structures: Groups, Rings, Fields": [
+    "Definition of groups, rings, fields",
+    "Subgroups, cyclic groups",
+    "Cosets and Lagrange’s theorem",
+    "Homomorphisms and isomorphisms",
+    "Applications in cryptography"
+  ],
+
+  "Partial Orders & Lattices": [
+    "Posets and Hasse diagrams",
+    "Maximal, minimal, greatest, least elements",
+    "Lattices and their properties",
+    "Modular and distributive lattices"
+  ],
+
+  "Boolean Algebra": [
+    "Boolean expressions",
+    "Canonical forms: SOP, POS",
+    "Boolean identities and simplification",
+    "Karnaugh maps (K-maps)"
+  ],
+
+  "Combinatorics & Counting": [
+    "Permutation and combination",
+    "Binomial theorem",
+    "Principle of inclusion-exclusion",
+    "Pigeonhole principle"
+  ],
+
+  "Number Theory & Discrete Structures": [
+    "Divisibility and prime numbers",
+    "Euclidean algorithm",
+    "Congruences and modular arithmetic",
+    "Chinese remainder theorem"
+  ],
+
+  "Recurrence Relations & Generating Functions": [
+    "Formulating recurrence relations",
+    "Solving linear recurrence relations",
+    "Homogeneous and non-homogeneous recurrences",
+    "Generating functions and applications"
+  ],
+
+  "Graph Theory: Connectivity, Planarity, Matching, Coloring, Trees": [
+    "Basic graph definitions and types",
+    "Graph representations: adjacency matrix/list",
+    "Connectivity and components",
+    "Euler and Hamiltonian circuits",
+    "Graph coloring and chromatic number",
+    "Planar graphs and Euler’s formula",
+    "Trees and spanning trees",
+    "Counting spanning trees (Cayley’s theorem)",
+    "Matching and bipartite graphs"
+  ],
+
+  "Linear Algebra: Vector Spaces, Matrices, Determinants": [
+    "Matrix operations",
+    "Determinants and properties",
+    "Rank and nullity",
+    "Systems of linear equations"
+  ],
+
+  "Linear Transformations & Rank": [
+    "Linear maps and matrices",
+    "Kernel and image of a transformation",
+    "Change of basis",
+    "Matrix representation of linear transformations"
+  ],
+
+  "LU & QR Decomposition": [
+    "LU decomposition method",
+    "Solving systems via LU",
+    "QR decomposition method"
+  ],
+
+  "Eigenvalues, Eigenvectors & Diagonalization": [
+    "Eigenvalues and eigenvectors",
+    "Characteristic equation",
+    "Diagonalization of matrices",
+    "Applications in graph theory"
+  ],
+
+  "Calculus: Limits, Continuity, Differentiability": [
+    "Limit of functions",
+    "Continuity of functions",
+    "Differentiability and rules of differentiation",
+    "Partial derivatives"
+  ],
+
+  "Optimization: Maxima-Minima, Lagrange Multipliers": [
+    "Finding extrema",
+    "Lagrange multipliers for constrained optimization"
+  ],
+
+  "Integration: Definite, Indefinite, Multiple Integrals": [
+    "Integration techniques",
+    "Definite and indefinite integrals",
+    "Double and triple integrals"
+  ],
+
+  "Mean Value Theorem": [
+    "Rolle’s theorem",
+    "Lagrange’s mean value theorem",
+    "Cauchy’s mean value theorem"
+  ],
+
+  "Line, Surface, Volume Integrals": [
+    "Line integrals",
+    "Surface integrals",
+    "Volume integrals",
+    "Green’s, Stokes’, Divergence theorems"
+  ],
+
+  "Differential Equations: ODE, PDE": [
+    "First-order ODEs",
+    "Higher-order ODEs",
+    "Homogeneous and non-homogeneous equations",
+    "Separation of variables",
+    "Introduction to PDEs"
+  ],
+
+  "Numerical Methods": [
+    "Bisection method",
+    "Newton-Raphson method",
+    "Gauss-Jordan and Gauss-Seidel methods",
+    "LU decomposition",
+    "Trapezoidal and Simpson’s rule",
+    "Numerical differentiation",
+    "Euler’s and Runge-Kutta methods for ODEs"
+  ],
+
+  "Probability Theory: Sample Space, Events, Conditional Probability": [
+    "Sample space and events",
+    "Classical and axiomatic probability",
+    "Conditional probability and independence",
+    "Bayes theorem"
+  ],
+
+  "Random Variables & Probability Distributions": [
+    "Discrete and continuous random variables",
+    "Probability mass and density functions",
+    "Expectation and variance",
+    "Binomial, Poisson, Normal distributions"
+  ],
+
+  "Bayes Theorem & Applications": [
+    "Bayesian inference",
+    "Applications in machine learning"
+  ],
+
+  "Statistics: Descriptive & Inferential": [
+    "Mean, median, mode",
+    "Standard deviation and variance",
+    "Histograms and frequency distributions"
+  ],
+
+  "Hypothesis Testing & Confidence Intervals": [
+    "Types of errors",
+    "Z-test, t-test, chi-square test",
+    "Confidence intervals"
+  ],
+
+  "Moments, Skewness, Kurtosis": [
+    "Central and raw moments",
+    "Skewness",
+    "Kurtosis"
+  ],
+
+  "Correlation, Regression & Time Series": [
+    "Correlation coefficient",
+    "Simple linear regression",
+    "Multiple regression basics",
+    "Time series analysis and forecasting"
+  ],
     "Boolean Algebra & De Morgan's Laws": [
         "Basic Boolean operations and laws",
         "De Morgan's theorems and applications",
