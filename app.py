@@ -18,9 +18,28 @@ credentials = load_credentials()
 
 subjects = {
     "General Aptitude": [
-    "1. Verbal Ability",
-    "2. Numerical Ability"
-    ],
+    "Verbal Ability: English Grammar and Usage",
+    "Verbal Ability: Vocabulary and Word Power",
+    "Verbal Ability: Sentence Completion",
+    "Verbal Ability: Sentence Correction",
+    "Verbal Ability: Synonyms and Antonyms",
+    "Verbal Ability: Idioms and Phrases",
+    "Verbal Ability: Spotting Errors",
+    "Verbal Ability: Fill in the Blanks (Vocabulary and Grammar)",
+    "Verbal Ability: Meaning of Words and Phrases in Context",
+    "Verbal Ability: Reading Comprehension",
+    "Verbal Ability: Para Jumbles (Sentence Ordering)",
+    "Verbal Ability: Logical Sequencing of Sentences",
+    "Verbal Ability: Analogy (Verbal Reasoning)",
+    "Verbal Ability: Critical Reasoning and Inference",
+    "Verbal Ability: Verbal Deduction",
+    "Verbal Ability: Logical Reasoning",
+    "Numerical Ability: Numerical Computation",
+    "Numerical Ability: Numerical Estimation",
+    "Numerical Ability: Numerical Reasoning",
+    "Numerical Ability: Quantitative Aptitude",
+    "Numerical Ability: Data Interpretation"
+  ],
     "Engineering Mathematics": [
     "Set Theory & Relations",
     "Mathematical Logic: Propositional & First-Order",
@@ -351,216 +370,170 @@ concept_mastery = {
     "Functions: Injective, Surjective, Bijective",
     "Composition of functions and inverse functions"
   ],
-    "1. Verbal Ability": [
-    "1.1 English Grammar and Usage",
-    "1.2 Vocabulary and Word Power",
-    "1.3 Sentence Completion",
-    "1.4 Sentence Correction",
-    "1.5 Synonyms and Antonyms",
-    "1.6 Idioms and Phrases",
-    "1.7 Spotting Errors",
-    "1.8 Fill in the Blanks (Vocabulary and Grammar)",
-    "1.9 Meaning of Words and Phrases in Context",
-    "1.10 Reading Comprehension",
-    "1.11 Para Jumbles (Sentence Ordering)",
-    "1.12 Logical Sequencing of Sentences",
-    "1.13 Analogy (Verbal Reasoning)",
-    "1.14 Critical Reasoning and Inference",
-    "1.15 Verbal Deduction",
-    "1.16 Logical Reasoning"
-  ],
+    "Verbal Ability: English Grammar and Usage": [
+      "Parts of Speech",
+      "Tenses",
+      "Articles",
+      "Prepositions",
+      "Conjunctions",
+      "Subject-Verb Agreement",
+      "Modifiers",
+      "Parallelism",
+      "Direct and Indirect Speech",
+      "Active and Passive Voice",
+      "Sentence Structure",
+      "Punctuation Rules",
+      "Common Grammatical Errors"
+    ],
+    "Verbal Ability: Vocabulary and Word Power": [
+      "Root Words",
+      "Prefixes and Suffixes",
+      "Homonyms and Homophones",
+      "Contextual Vocabulary",
+      "Commonly Confused Words",
+      "Foreign Words Used in English",
+      "One-Word Substitutions"
+    ],
+    "Verbal Ability: Sentence Completion": [
+      "Context Clues for Filling Blanks",
+      "Grammar-based Sentence Completion",
+      "Vocabulary-based Sentence Completion",
+      "Sentence Equivalence"
+    ],
+    "Verbal Ability: Sentence Correction": [
+      "Grammar-based Error Correction",
+      "Choice of Appropriate Word/Phrase",
+      "Redundancy Elimination"
+    ],
+    "Verbal Ability: Synonyms and Antonyms": [
+      "Common Synonyms",
+      "Common Antonyms",
+      "Contextual Usage"
+    ],
+    "Verbal Ability: Idioms and Phrases": [
+      "Common English Idioms",
+      "Meaning and Usage of Phrases"
+    ],
+    "Verbal Ability: Spotting Errors": [
+      "Grammar-based Errors",
+      "Usage-based Errors",
+      "Incorrect Word Forms",
+      "Sentence Fragment Errors"
+    ],
+    "Verbal Ability: Fill in the Blanks (Vocabulary and Grammar)": [
+      "Contextual Vocabulary",
+      "Grammar-based Filling",
+      "Multiple Blanks Type"
+    ],
+    "Verbal Ability: Meaning of Words and Phrases in Context": [
+      "Vocabulary in Context",
+      "Inference of Meaning from Usage"
+    ],
+    "Verbal Ability: Reading Comprehension": [
+      "Main Idea Identification",
+      "Supporting Details",
+      "Tone and Style",
+      "Inference Questions",
+      "Fact vs Opinion",
+      "Summarization of Passage",
+      "Author’s Purpose",
+      "Hidden Meaning Detection"
+    ],
+    "Verbal Ability: Para Jumbles (Sentence Ordering)": [
+      "Logical Arrangement of Sentences",
+      "Identification of Introductory and Concluding Sentences",
+      "Connector Words for Sequencing"
+    ],
+    "Verbal Ability: Logical Sequencing of Sentences": [
+      "Chronological Order",
+      "Cause-Effect Sequencing",
+      "Theme-based Sequencing"
+    ],
+    "Verbal Ability: Analogy (Verbal Reasoning)": [
+      "Word Relationship Types",
+      "Analogical Pairs",
+      "Classification of Analogies"
+    ],
+    "Verbal Ability: Critical Reasoning and Inference": [
+      "Assumptions",
+      "Arguments and Conclusions",
+      "Strengthening/Weakening Arguments",
+      "Inference from Passages",
+      "Logical Consistency",
+      "Cause and Effect"
+    ],
+    "Verbal Ability: Verbal Deduction": [
+      "Deductive Reasoning",
+      "Syllogisms",
+      "Conclusions based on Statements"
+    ],
+    "Verbal Ability: Logical Reasoning": [
+      "Logical Consistency",
+      "Logical Sequences",
+      "Pattern Recognition",
+      "Statement and Assumptions",
+      "Statement and Conclusions",
+      "Binary Logic (True/False Type)"
+    ],
 
-  "1.1 English Grammar and Usage": [
-    "Parts of Speech",
-    "Tenses",
-    "Articles",
-    "Prepositions",
-    "Conjunctions",
-    "Subject-Verb Agreement",
-    "Modifiers",
-    "Parallelism",
-    "Direct and Indirect Speech",
-    "Active and Passive Voice",
-    "Sentence Structure",
-    "Punctuation Rules",
-    "Common Grammatical Errors"
-  ],
-
-  "1.2 Vocabulary and Word Power": [
-    "Root Words",
-    "Prefixes and Suffixes",
-    "Homonyms and Homophones",
-    "Contextual Vocabulary",
-    "Commonly Confused Words",
-    "Foreign Words Used in English",
-    "One-Word Substitutions"
-  ],
-
-  "1.3 Sentence Completion": [
-    "Context Clues for Filling Blanks",
-    "Grammar-based Sentence Completion",
-    "Vocabulary-based Sentence Completion",
-    "Sentence Equivalence"
-  ],
-
-  "1.4 Sentence Correction": [
-    "Grammar-based Error Correction",
-    "Choice of Appropriate Word/Phrase",
-    "Redundancy Elimination"
-  ],
-
-  "1.5 Synonyms and Antonyms": [
-    "Common Synonyms",
-    "Common Antonyms",
-    "Contextual Usage"
-  ],
-
-  "1.6 Idioms and Phrases": [
-    "Common English Idioms",
-    "Meaning and Usage of Phrases"
-  ],
-
-  "1.7 Spotting Errors": [
-    "Grammar-based Errors",
-    "Usage-based Errors",
-    "Incorrect Word Forms",
-    "Sentence Fragment Errors"
-  ],
-
-  "1.8 Fill in the Blanks (Vocabulary and Grammar)": [
-    "Contextual Vocabulary",
-    "Grammar-based Filling",
-    "Multiple Blanks Type"
-  ],
-
-  "1.9 Meaning of Words and Phrases in Context": [
-    "Vocabulary in Context",
-    "Inference of Meaning from Usage"
-  ],
-
-  "1.10 Reading Comprehension": [
-    "Main Idea Identification",
-    "Supporting Details",
-    "Tone and Style",
-    "Inference Questions",
-    "Fact vs Opinion",
-    "Summarization of Passage",
-    "Author’s Purpose",
-    "Hidden Meaning Detection"
-  ],
-
-  "1.11 Para Jumbles (Sentence Ordering)": [
-    "Logical Arrangement of Sentences",
-    "Identification of Introductory and Concluding Sentences",
-    "Connector Words for Sequencing"
-  ],
-
-  "1.12 Logical Sequencing of Sentences": [
-    "Chronological Order",
-    "Cause-Effect Sequencing",
-    "Theme-based Sequencing"
-  ],
-
-  "1.13 Analogy (Verbal Reasoning)": [
-    "Word Relationship Types",
-    "Analogical Pairs",
-    "Classification of Analogies"
-  ],
-
-  "1.14 Critical Reasoning and Inference": [
-    "Assumptions",
-    "Arguments and Conclusions",
-    "Strengthening/Weakening Arguments",
-    "Inference from Passages",
-    "Logical Consistency",
-    "Cause and Effect"
-  ],
-
-  "1.15 Verbal Deduction": [
-    "Deductive Reasoning",
-    "Syllogisms",
-    "Conclusions based on Statements"
-  ],
-
-  "1.16 Logical Reasoning": [
-    "Logical Consistency",
-    "Logical Sequences",
-    "Pattern Recognition",
-    "Statement and Assumptions",
-    "Statement and Conclusions",
-    "Binary Logic (True/False Type)"
-  ],
-
-  "2. Numerical Ability": [
-    "2.1 Numerical Computation",
-    "2.2 Numerical Estimation",
-    "2.3 Numerical Reasoning",
-    "2.4 Quantitative Aptitude",
-    "2.5 Data Interpretation"
-  ],
-
-  "2.1 Numerical Computation": [
-    "Operations with Numbers",
-    "Fractions and Decimals",
-    "Percentage Calculations",
-    "Ratios and Proportions",
-    "Squares and Cubes",
-    "Roots (Square Roots, Cube Roots)",
-    "HCF and LCM",
-    "Divisibility Rules",
-    "Simplification Techniques",
-    "Approximation Techniques"
-  ],
-
-  "2.2 Numerical Estimation": [
-    "Estimation of Values",
-    "Rounding Off Numbers",
-    "Quick Calculation Tricks",
-    "Mental Math Techniques"
-  ],
-
-  "2.3 Numerical Reasoning": [
-    "Number Series",
-    "Missing Number Problems",
-    "Logical Sequences",
-    "Pattern Recognition",
-    "Arithmetic Reasoning",
-    "Mathematical Puzzles",
-    "Problems on Clocks",
-    "Problems on Calendars",
-    "Binary Logic Puzzles"
-  ],
-
-  "2.4 Quantitative Aptitude": [
-    "Time and Work",
-    "Time, Speed and Distance",
-    "Profit and Loss",
-    "Simple Interest and Compound Interest",
-    "Average",
-    "Mixtures and Alligations",
-    "Problems on Ages",
-    "Partnership",
-    "Mensuration (2D and 3D Geometry)",
-    "Permutation and Combination",
-    "Probability Basics",
-    "Logarithms",
-    "Progressions (AP, GP)",
-    "Set Theory Basics",
-    "Venn Diagrams",
-    "Simple Geometry"
-  ],
-
-  "2.5 Data Interpretation": [
-    "Tables Interpretation",
-    "Bar Graphs",
-    "Line Graphs",
-    "Pie Charts",
-    "Mixed Graphs",
-    "Data Sufficiency",
-    "Calculation-based DI Questions",
-    "Percentage-based DI",
-    "Ratio-based DI"
-  ],
+    "Numerical Ability: Numerical Computation": [
+      "Operations with Numbers",
+      "Fractions and Decimals",
+      "Percentage Calculations",
+      "Ratios and Proportions",
+      "Squares and Cubes",
+      "Roots (Square Roots, Cube Roots)",
+      "HCF and LCM",
+      "Divisibility Rules",
+      "Simplification Techniques",
+      "Approximation Techniques"
+    ],
+    "Numerical Ability: Numerical Estimation": [
+      "Estimation of Values",
+      "Rounding Off Numbers",
+      "Quick Calculation Tricks",
+      "Mental Math Techniques"
+    ],
+    "Numerical Ability: Numerical Reasoning": [
+      "Number Series",
+      "Missing Number Problems",
+      "Logical Sequences",
+      "Pattern Recognition",
+      "Arithmetic Reasoning",
+      "Mathematical Puzzles",
+      "Problems on Clocks",
+      "Problems on Calendars",
+      "Binary Logic Puzzles"
+    ],
+    "Numerical Ability: Quantitative Aptitude": [
+      "Time and Work",
+      "Time, Speed and Distance",
+      "Profit and Loss",
+      "Simple Interest and Compound Interest",
+      "Average",
+      "Mixtures and Alligations",
+      "Problems on Ages",
+      "Partnership",
+      "Mensuration (2D and 3D Geometry)",
+      "Permutation and Combination",
+      "Probability Basics",
+      "Logarithms",
+      "Progressions (AP, GP)",
+      "Set Theory Basics",
+      "Venn Diagrams",
+      "Simple Geometry"
+    ],
+    "Numerical Ability: Data Interpretation": [
+      "Tables Interpretation",
+      "Bar Graphs",
+      "Line Graphs",
+      "Pie Charts",
+      "Mixed Graphs",
+      "Data Sufficiency",
+      "Calculation-based DI Questions",
+      "Percentage-based DI",
+      "Ratio-based DI"
+    ],
 
   "Mathematical Logic: Propositional & First-Order": [
     "Propositional logic: AND, OR, NOT, IMPLIES",
